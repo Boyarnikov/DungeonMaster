@@ -11,8 +11,10 @@ public class TileManager : MonoBehaviour
 {
 
     [SerializeField] Dictionary<Tuple<int, int>, GameObject> tiles;
+    [SerializeField] List<List<GameObject>> possibleTiles;
     [SerializeField] int size = 10;
     [SerializeField] GameObject tileObject;
+    [SerializeField] GameObject possibleTileObject;
     [SerializeField] Vector3 xOffset, yOffset;
     [SerializeField] bool reload = false;
 
@@ -21,6 +23,7 @@ public class TileManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        possibleTiles = new List<List<GameObject>>();
         tiles = new Dictionary<Tuple<int, int>, GameObject>();
         InicialazeBoard();
         RebuildExternalCollider(gameObject, tiles);
@@ -31,21 +34,27 @@ public class TileManager : MonoBehaviour
         DeleteBoard();
         tiles = new Dictionary<Tuple<int, int>, GameObject>();
         for (int i = 0; i < size; i++) {
+            possibleTiles.Add(new List<GameObject>());
             for (int j = 0; j < size; j++)
             {
 
-                GameObject tile = Instantiate(tileObject, transform.position + i * xOffset + j * yOffset, Quaternion.identity);
+                GameObject tile = Instantiate(possibleTileObject, transform.position + i * xOffset + j * yOffset, Quaternion.identity);
                 tile.transform.parent = transform;
-                tiles.Add(new Tuple<int, int>(i, j), tile);
+                possibleTiles[i].Add(tile);
                 PossibleCell ps = tile.GetComponent<PossibleCell>();
                 if (ps != null)
                 {
                     ps.coordinates = new Vector2(i, j);
                     ps.tileManager = this;
                 }
+
+                if (UnityEngine.Random.Range(0, 3) != 0) { 
+                    tile = Instantiate(tileObject, transform.position + i * xOffset + j * yOffset, Quaternion.identity);
+                    tile.transform.parent = transform;
+                    tiles.Add(new Tuple<int, int>(i, j), tile);
+                }
             }
         }
-
     }
 
     void DeleteBoard()
@@ -53,6 +62,11 @@ public class TileManager : MonoBehaviour
         foreach (var tile in tiles) {
             Destroy(tile.Value);
         }
+        foreach (var tileRow in possibleTiles)
+            foreach (var tile in tileRow)
+            {
+                Destroy(tile);
+            }
     }
 
     void RebuildExternalCollider(GameObject collider, Dictionary<Tuple<int, int>, GameObject> tiles) {
@@ -84,6 +98,7 @@ public class TileManager : MonoBehaviour
     {
         if (reload)
         {
+            InicialazeBoard();
             RebuildExternalCollider(gameObject, tiles);
             reload = false;
         }
