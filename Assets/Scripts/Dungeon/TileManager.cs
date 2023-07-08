@@ -9,12 +9,16 @@ using UnityEngine.UIElements;
 
 public class TileManager : MonoBehaviour
 {
+
     [SerializeField] Dictionary<Tuple<int, int>, GameObject> tiles;
     List<GameObject> tilesFlat;
     int size = 10;
     [SerializeField] GameObject tileObject;
     [SerializeField] Vector3 x_offset, y_offset;
     [SerializeField] bool reload = false;
+
+    Vector2 clickedCell;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,9 +33,16 @@ public class TileManager : MonoBehaviour
         for (int i = 0; i < size; i++) {
             for (int j = 0; j < size; j++)
             {
+
                 GameObject tile = Instantiate(tileObject, i * x_offset + j * y_offset, Quaternion.identity);
                 tile.transform.parent = transform;
                 tiles.Add(new Tuple<int, int>(i, j), tile);
+                PossibleCell ps = tile.GetComponent<PossibleCell>();
+                if (ps != null)
+                {
+                    ps.coordinates = new Vector2(i, j);
+                    ps.tileManager = this;
+                }
             }
         }
 
@@ -73,6 +84,21 @@ public class TileManager : MonoBehaviour
         {
             RebuildExternalCollider(gameObject, tiles);
             reload = false;
+        }
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Vector2 mousePos2D = new Vector2(mousePos.x, mousePos.y);
+
+            RaycastHit2D hit = Physics2D.Raycast(mousePos2D, Vector2.zero);
+            if (hit.collider != null && hit.collider.tag == "PossibleTile")
+            {
+                PossibleCell pc = hit.collider.GetComponent<PossibleCell>();
+                Debug.Log(hit.collider.gameObject.name);
+                clickedCell = pc.coordinates;
+                Debug.Log(clickedCell);
+            }
         }
     }
 }
