@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 9092566851966890325}
   - component: {fileID: 3069209145116214625}
   - component: {fileID: 5838694967443612354}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: TilePossiblePossition
   m_TagString: PossibleTile
   m_Icon: {fileID: 0}
@@ -107,7 +107,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5365652700401395631}
   - component: {fileID: 8626997840312808101}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: spr_floor
   m_TagString: PossibleTile
   m_Icon: {fileID: 0}

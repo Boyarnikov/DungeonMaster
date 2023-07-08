@@ -6,11 +6,9 @@ using UnityEngine;
 public class RoomPlacer : MonoBehaviour
 {
     List<List<GameObject>> tiles;
-    [SerializeField]
-    int size = 10;
+    [SerializeField] int size = 10;
     [SerializeField] GameObject tile;
     [SerializeField] Vector3 xOffset, yOffset;
-    [SerializeField] bool reload = false;
 
     // Start is called before the first frame update
     void Start()

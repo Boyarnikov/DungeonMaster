@@ -11,10 +11,9 @@ public class TileManager : MonoBehaviour
 {
 
     [SerializeField] Dictionary<Tuple<int, int>, GameObject> tiles;
-    List<GameObject> tilesFlat;
-    int size = 10;
+    [SerializeField] int size = 10;
     [SerializeField] GameObject tileObject;
-    [SerializeField] Vector3 x_offset, y_offset;
+    [SerializeField] Vector3 xOffset, yOffset;
     [SerializeField] bool reload = false;
 
     Vector2 clickedCell;
@@ -24,6 +23,7 @@ public class TileManager : MonoBehaviour
     {
         tiles = new Dictionary<Tuple<int, int>, GameObject>();
         InicialazeBoard();
+        RebuildExternalCollider(gameObject, tiles);
     }
 
     void InicialazeBoard()
@@ -34,7 +34,7 @@ public class TileManager : MonoBehaviour
             for (int j = 0; j < size; j++)
             {
 
-                GameObject tile = Instantiate(tileObject, i * x_offset + j * y_offset, Quaternion.identity);
+                GameObject tile = Instantiate(tileObject, transform.position + i * xOffset + j * yOffset, Quaternion.identity);
                 tile.transform.parent = transform;
                 tiles.Add(new Tuple<int, int>(i, j), tile);
                 PossibleCell ps = tile.GetComponent<PossibleCell>();
@@ -56,18 +56,19 @@ public class TileManager : MonoBehaviour
     }
 
     void RebuildExternalCollider(GameObject collider, Dictionary<Tuple<int, int>, GameObject> tiles) {
+        Debug.Log("RebuildExternalCollider");
         Destroy(collider.GetComponent<PolygonCollider2D>());
         PolygonCollider2D component = collider.AddComponent<PolygonCollider2D>();
         Vector2[] main = new Vector2[4];
-        main[0] = new Vector2(-10000, -10000);
-        main[1] = new Vector2(10000, -10000);
-        main[2] = new Vector2(10000, 10000);
-        main[3] = new Vector2(-10000, 10000);
+        main[0] = new Vector2(-1000, -1000);
+        main[1] = new Vector2(1000, -1000);
+        main[2] = new Vector2(1000, 1000);
+        main[3] = new Vector2(-1000, 1000);
         component.pathCount = tiles.Count + 1;
         component.SetPath(0, main);
         int iter = 1;
         foreach (var tile in tiles) {
-            Vector2 place = new Vector2(tile.Value.transform.position.x, tile.Value.transform.position.y);
+            Vector2 place = new Vector2(tile.Value.transform.position.x - transform.position.x, tile.Value.transform.position.y - transform.position.y);
             Vector2[] path = tile.Value.GetComponent<PolygonCollider2D>().GetPath(0);
             for (int i = 0; i < path.Count(); i++) {
                 path[i] += place;
@@ -76,6 +77,7 @@ public class TileManager : MonoBehaviour
             iter++;
         }
     }
+    
 
     // Update is called once per frame
     void Update()
