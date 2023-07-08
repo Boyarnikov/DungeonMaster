@@ -18,7 +18,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
-        layer = LayerMask.GetMask("Tile");
+        layer = LayerMask.GetMask("Collider");
         body = GetComponent<Rigidbody2D>();
     }
 
@@ -69,9 +69,9 @@ public class PlayerMovement : MonoBehaviour
         Vector2 pos = transform.position +
             runSpeed * 0.01f *
             (Vector3.right * x + Vector3.up * y);
-        RaycastHit2D hit = Physics2D.Raycast(pos + Vector2.up * 0.01f, Vector2.down, 0.02f, LayerMask.GetMask("Tile"));
+        RaycastHit2D hit = Physics2D.Raycast(pos + Vector2.up * 0.01f, Vector2.down, 0.02f, LayerMask.GetMask("Collider"));
         Debug.DrawRay(pos + Vector2.up * 0.01f, Vector2.down * 0.02f, UnityEngine.Color.red, 0.001f);
-        return (hit.collider != null);
+        return (hit.collider == null);
     }
 
 }
