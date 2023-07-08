@@ -3,16 +3,14 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class TileManager : MonoBehaviour
+public class RoomPlacer : MonoBehaviour
 {
     List<List<GameObject>> tiles;
-    [SerializeField] 
+    [SerializeField]
     int size = 10;
     [SerializeField] GameObject tile;
     [SerializeField] Vector3 xOffset, yOffset;
     [SerializeField] bool reload = false;
-
-    Vector2 clickedCell;
 
     // Start is called before the first frame update
     void Start()
@@ -22,9 +20,9 @@ public class TileManager : MonoBehaviour
 
     void InicialazeBoard()
     {
-        DeleteBoard();
         tiles = new List<List<GameObject>>();
-        for (int i = 0; i < size; i++) {
+        for (int i = 0; i < size; i++)
+        {
             tiles.Add(new List<GameObject>());
             for (int j = 0; j < size; j++)
             {
@@ -34,7 +32,6 @@ public class TileManager : MonoBehaviour
                 if (ps != null)
                 {
                     ps.coordinates = new Vector2(i, j);
-                    ps.tileManager = this;
                 }
                 tiles[i].Add(thisTile);
             }
@@ -42,41 +39,25 @@ public class TileManager : MonoBehaviour
 
     }
 
-    void DeleteBoard()
-    {
-        if (tiles != null)
-        {
-            foreach (var tileRow in tiles)
-            {
-                foreach (var thisTile in tileRow) {
-                    Destroy(thisTile);
-                }
-            }
-        }
-    }
-
     // Update is called once per frame
     void Update()
     {
-        if (reload)
-        {
-            InicialazeBoard();
-            reload = false;
-        }
+        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector2 mousePos2D = new Vector2(mousePos.x, mousePos.y);
 
-        if (Input.GetMouseButtonDown(0))
+        string[] s = { "PossibleTile" };
+        RaycastHit2D hit = Physics2D.Raycast(mousePos2D, Vector2.zero, Mathf.Infinity, LayerMask.GetMask(s));
+        if (hit.collider != null && hit.collider.tag == "PossibleTile")
         {
-            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Vector2 mousePos2D = new Vector2(mousePos.x, mousePos.y);
-
-            RaycastHit2D hit = Physics2D.Raycast(mousePos2D, Vector2.zero);
-            if (hit.collider != null && hit.collider.tag == "PossibleTile")
-            {
-                PossibleCell pc = hit.collider.GetComponent<PossibleCell>();
-                Debug.Log(hit.collider.gameObject.name);
-                clickedCell = pc.coordinates;
-                Debug.Log(clickedCell);
-            }
+            transform.position = hit.collider.transform.position;
         }
+        else 
+        {
+            //transform.position = mousePos;
+        }
+        transform.position = transform.position.x * Vector3.right +
+            transform.position.y * Vector3.up +
+            -2 * Vector3.forward;
+
     }
 }
