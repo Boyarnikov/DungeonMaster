@@ -111,5 +111,6 @@ public class LinesManager : MonoBehaviour
             verticalLenth *= Mathf.Min(Mathf.Max((maxValue - minValue) / (value - minValue), 1.05f), 1.1f);
             lenth *= Mathf.Min(Mathf.Max((maxValue - minValue) / (value - minValue), 1.03f), 1.08f);
         }
+        
     }
 }

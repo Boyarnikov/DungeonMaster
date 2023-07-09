@@ -14,6 +14,9 @@ public class PlayerMovement : MonoBehaviour
     float vertical;
     float moveLimiter = 0.7f;
 
+    public string status = "hold";
+    public int directional = 0;
+
     public float runSpeed = 10.0f;
 
     void Start()
@@ -27,6 +30,10 @@ public class PlayerMovement : MonoBehaviour
         // Gives a value between -1 and 1
         horizontal = Input.GetAxisRaw("Horizontal"); // -1 is left
         vertical = Input.GetAxisRaw("Vertical"); // -1 is down
+        if (horizontal == 0 && vertical == 0) status = "hold";
+        else status = "move";
+        if (horizontal > 0) directional = 0;
+        if (horizontal < 0) directional = 1;
     }
 
     void FixedUpdate()
