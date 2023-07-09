@@ -5,8 +5,14 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SocialPlatforms.Impl;
 
-public class PossibleCell : MonoBehaviour
+public class Cell: MonoBehaviour
 {
     public Vector2 coordinates;
     public TileManager tileManager;
+
+    public void Rotate()
+    {
+        return;
+    }
 }
+

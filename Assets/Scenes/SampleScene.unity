@@ -530,7 +530,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   size: 4
-  tile: {fileID: 4215918069895548308, guid: ae57d85d2861d8b40a46d387fca8893e, type: 3}
+  tileObject: {fileID: 471100783}
   xOffset: {x: 0.5, y: 0.25, z: 0.01}
   yOffset: {x: -0.5, y: 0.25, z: 0.01}
 --- !u!4 &983148382

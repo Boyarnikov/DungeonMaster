@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 9092566851966890325}
   - component: {fileID: 3069209145116214625}
-  - component: {fileID: -8381623533331929450}
-  m_Layer: 6
-  m_Name: Tile
-  m_TagString: Tile
+  - component: {fileID: 5838694967443612354}
+  m_Layer: 8
+  m_Name: Grid
+  m_TagString: PossibleTile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -46,10 +46,10 @@ PolygonCollider2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 192
+    m_Bits: 0
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -83,7 +83,7 @@ PolygonCollider2D:
       - {x: 0.5, y: 0.25}
       - {x: 0, y: 0}
   m_UseDelaunayMesh: 0
---- !u!114 &-8381623533331929450
+--- !u!114 &5838694967443612354
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -107,9 +107,9 @@ GameObject:
   m_Component:
   - component: {fileID: 5365652700401395631}
   - component: {fileID: 8626997840312808101}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: spr_floor
-  m_TagString: Untagged
+  m_TagString: PossibleTile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -171,7 +171,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 31f4c42d71ada074cb427d57ef48e389, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0.775404, b: 1, a: 0.38431373}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
