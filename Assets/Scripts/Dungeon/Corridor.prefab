@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 9092566851966890325}
   - component: {fileID: 3069209145116214625}
-  - component: {fileID: 5838694967443612354}
-  m_Layer: 8
-  m_Name: TilePossiblePossition
-  m_TagString: PossibleTile
+  - component: {fileID: 8202240856742549033}
+  m_Layer: 6
+  m_Name: Corridor
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -83,7 +83,7 @@ PolygonCollider2D:
       - {x: 0.5, y: 0.25}
       - {x: 0, y: 0}
   m_UseDelaunayMesh: 0
---- !u!114 &5838694967443612354
+--- !u!114 &8202240856742549033
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -92,10 +92,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 4215918069895548308}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba70f4d65275b0d409133ae1eeedef54, type: 3}
+  m_Script: {fileID: 11500000, guid: f8115dd1c9f9c624788444969c9dffc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coordinates: {x: 0, y: 0}
+  coordinates: {x: 1, y: 0}
   tileManager: {fileID: 0}
 --- !u!1 &8020933168917402565
 GameObject:
@@ -107,7 +107,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5365652700401395631}
   - component: {fileID: 8626997840312808101}
-  m_Layer: 8
+  m_Layer: 6
   m_Name: spr_floor
   m_TagString: PossibleTile
   m_Icon: {fileID: 0}
@@ -171,7 +171,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 31f4c42d71ada074cb427d57ef48e389, type: 3}
-  m_Color: {r: 0, g: 0.775404, b: 1, a: 0.5176471}
+  m_Color: {r: 0.9433962, g: 0.3960484, b: 0.4185037, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

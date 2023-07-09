@@ -3,7 +3,10 @@ guid: 2032ed7a8d27d2844aa9687d3f58612d
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - tileObject: {instanceID: 0}
+  - possibleTileObject: {instanceID: 0}
+  - corridorObject: {fileID: 4215918069895548308, guid: d3456af7dd7a87a4eb1c3999a46a74b7, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
