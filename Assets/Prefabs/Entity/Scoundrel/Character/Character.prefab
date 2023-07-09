@@ -107,7 +107,7 @@ MonoBehaviour:
     m_Bits: 0
   status: hold
   directional: 0
-  runSpeed: 10
+  runSpeed: 5
 --- !u!114 &5481337998045668398
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -127,6 +127,8 @@ MonoBehaviour:
   spriteWays:
   - {fileID: 101966816, guid: a828c0697cc19fa42a04be3afc05c506, type: 3}
   - {fileID: -573529318, guid: a828c0697cc19fa42a04be3afc05c506, type: 3}
+  flag: 0
+  add: 0
 --- !u!114 &-7421507492164985445
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -141,6 +143,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectSize: 1
   objectPool: {fileID: 0}
+  movementSpriteManager: {fileID: 5481337998045668398}
 --- !u!50 &4167175282891178464
 Rigidbody2D:
   serializedVersion: 4
@@ -229,7 +232,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6522433317036475553}
   - component: {fileID: 8858693807064514962}
-  - component: {fileID: 4187526676314991445}
   m_Layer: 0
   m_Name: SelectArea
   m_TagString: Untagged
@@ -303,17 +305,3 @@ PolygonCollider2D:
       - {x: 0.28636944, y: -0.19646215}
       - {x: 0.6301942, y: 0.18261689}
   m_UseDelaunayMesh: 0
---- !u!114 &4187526676314991445
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5587265429663994863}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8f626b207f158e94898f3382cbaa0f34, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movable: 0
-  selected: 0

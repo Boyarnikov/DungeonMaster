@@ -158,6 +158,8 @@ MonoBehaviour:
   layer:
     serializedVersion: 2
     m_Bits: 128
+  status: hold
+  directional: 0
   runSpeed: 10
 --- !u!212 &345897114
 SpriteRenderer:
@@ -332,9 +334,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2032ed7a8d27d2844aa9687d3f58612d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  coridorSize: 7
   size: 30
   tileObject: {fileID: 4215918069895548308, guid: ae57d85d2861d8b40a46d387fca8893e, type: 3}
-  possibleTileObject: {fileID: 4215918069895548308, guid: d3456af7dd7a87a4eb1c3999a46a74b7, type: 3}
+  possibleTileObject: {fileID: 4215918069895548308, guid: 1327788ed50349a418c4ddda08a8c4b9, type: 3}
+  corridorObject: {fileID: 4215918069895548308, guid: d3456af7dd7a87a4eb1c3999a46a74b7, type: 3}
   xOffset: {x: 0.5, y: 0.25, z: 0.01}
   yOffset: {x: -0.5, y: 0.25, z: 0.01}
   reload: 0
@@ -469,7 +473,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 8.4375
+  orthographic size: 8.25
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -531,8 +535,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   size: 4
   tileObject: {fileID: 471100783}
+  corridorObject: {fileID: 4215918069895548308, guid: d3456af7dd7a87a4eb1c3999a46a74b7, type: 3}
   xOffset: {x: 0.5, y: 0.25, z: 0.01}
   yOffset: {x: -0.5, y: 0.25, z: 0.01}
+  globalOffset: {x: 0, y: 0, z: 0}
+  construct: 0
+  sizeX: 0
+  sizeY: 0
+  tileManager: {fileID: 0}
 --- !u!4 &983148382
 Transform:
   m_ObjectHideFlags: 0
