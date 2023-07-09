@@ -43,3 +43,18 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Background
+    uniqueID: 181844667
+    locked: 0
+  - name: Shadows
+    uniqueID: 353930695
+    locked: 0
+  - name: Floor
+    uniqueID: 2474377069
+    locked: 0
+  - name: Room
+    uniqueID: 725090831
+    locked: 0
+  - name: Interface
+    uniqueID: 3383699761
+    locked: 0
