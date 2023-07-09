@@ -45,18 +45,6 @@ public class PlayerMovement : MonoBehaviour
             body.velocity = new Vector2(horizontal * runSpeed,
                 vertical * 0.5f * runSpeed);
         }
-        else if (vertical == 0 && IsOnTilePointRelative(horizontal, 0.5f))
-        {
-            Debug.Log("horisontal up");
-            body.velocity = new Vector2(horizontal * runSpeed * moveLimiter,
-                0.5f * runSpeed * moveLimiter);
-        }
-        else if (vertical == 0 && IsOnTilePointRelative(horizontal, -0.5f))
-        {
-            Debug.Log("horisontal down");
-            body.velocity = new Vector2(horizontal * runSpeed * moveLimiter,
-                -0.5f * runSpeed * moveLimiter);
-        }
         else
         {
             body.velocity = Vector2.zero;
