@@ -6,6 +6,7 @@ TagManager:
   tags:
   - PossibleTile
   - Tile
+  - Selectable
   layers:
   - Default
   - TransparentFX

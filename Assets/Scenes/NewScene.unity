@@ -332,9 +332,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2032ed7a8d27d2844aa9687d3f58612d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  coridorSize: 7
   size: 30
   tileObject: {fileID: 4215918069895548308, guid: ae57d85d2861d8b40a46d387fca8893e, type: 3}
   possibleTileObject: {fileID: 4215918069895548308, guid: d3456af7dd7a87a4eb1c3999a46a74b7, type: 3}
+  corridorObject: {fileID: 0}
   xOffset: {x: 0.5, y: 0.25, z: 0.01}
   yOffset: {x: -0.5, y: 0.25, z: 0.01}
   reload: 0
@@ -682,6 +684,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4260577867796659498, guid: 07dd18a9fc177af4dab9ed2b4cb12644, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4819074195273344756, guid: 07dd18a9fc177af4dab9ed2b4cb12644, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5390309026972408941, guid: 07dd18a9fc177af4dab9ed2b4cb12644, type: 3}
+      propertyPath: adding
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8192833317151434347, guid: 07dd18a9fc177af4dab9ed2b4cb12644, type: 3}
       propertyPath: m_Name
       value: ProgressBar
@@ -696,7 +710,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8914975092147502139, guid: 07dd18a9fc177af4dab9ed2b4cb12644, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6.02
+      value: 6.67
       objectReference: {fileID: 0}
     - target: {fileID: 8914975092147502139, guid: 07dd18a9fc177af4dab9ed2b4cb12644, type: 3}
       propertyPath: m_LocalPosition.z
@@ -765,9 +779,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   size: 4
-  tile: {fileID: 4215918069895548308, guid: ae57d85d2861d8b40a46d387fca8893e, type: 3}
+  tileObject: {fileID: 0}
+  corridorObject: {fileID: 0}
   xOffset: {x: 0.5, y: 0.25, z: 0.01}
   yOffset: {x: -0.5, y: 0.25, z: 0.01}
+  globalOffset: {x: 0, y: 0, z: 0}
+  construct: 0
+  sizeX: 0
+  sizeY: 0
+  tileManager: {fileID: 0}
 --- !u!4 &983148382
 Transform:
   m_ObjectHideFlags: 0
